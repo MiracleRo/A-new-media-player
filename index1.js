@@ -15,7 +15,8 @@
         var dur_min = parseInt(myvideo.duration / 60);
         var dur_sec = Math.floor(myvideo.duration % 60);
         time.innerHTML = zero(cur_min) + ":" + zero(cur_sec) + "/" + zero(dur_min) + ":" + zero(dur_sec);
-
+         var line = document.getElementById('liner1');
+     line.style.width = (100*myvideo.currentTime)/myvideo.duration+"%"
         function zero(a) {
             if (a < 10) {
                 return "0" + a;
@@ -32,4 +33,8 @@
     ahead.onclick = function(){
     	myvideo.currentTime = myvideo.currentTime+5;
     }
+   /* myvideo.ontimeupdate = function(){
+     var line = document.getElementById('liner1');
+     line.style.width = (100*myvideo.currentTime)/myvideo.duration+"%";
+    }*/
 }(window))

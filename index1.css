@@ -20,12 +20,12 @@
 }
 #liner{
 	height: 5px;
-	background-color: red;
+	background-color: black;
 }
 #liner1{
 	height: 5px;
-	width: 6px;
-	background-color: black;
+	width: 0px;
+	background-color: red;
 	position: relative;
 	top: -5px;
 }
