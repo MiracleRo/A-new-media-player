@@ -8,6 +8,7 @@
             myvideo.pause();
         }
     }
+    //stop/go的暂停 开始onclicks时间;
     myvideo.ontimeupdate = function() {
         var time = document.getElementById('video_time');
         var cur_min = parseInt(myvideo.currentTime / 60);
@@ -25,6 +26,7 @@
             }
         }
     }
+    //时间进度条 以及计时器
     var back = document.getElementById('btn_back');
     back.onclick = function(){
     	myvideo.currentTime-=5;
@@ -33,6 +35,7 @@
     ahead.onclick = function(){
     	myvideo.currentTime+=5;
     }
+    //快进 快退按钮
     var up = document.getElementById('btn_up');
     var down = document.getElementById('btn_down');
     up.onclick = function(){
@@ -47,6 +50,7 @@
           var sounder = document.getElementById('sound1');
      sounder.style.width = (100*myvideo.volume)/1+"%"
     }
+    //调节音量按钮 以及音量条；
    /* var full = document.getElementById('btn_full');
     full.onclick = function(){
         var a = document.getElementById('player');
