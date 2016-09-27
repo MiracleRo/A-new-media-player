@@ -1,0 +1,28 @@
+.player{
+	background-color: black;
+    width: 600px;
+    height: 440px;
+}
+.video{
+	width: 600px;
+	height: 340px;
+}
+.top_mune{
+	height: 30px;
+	width:600px;
+}
+.video video{
+	position: relative;
+	top: -30px;
+}
+.bottom_button{
+	height: 50px;
+}
+.liner{
+	height: 20px;
+}
+#video_time{
+	height: 20px;
+	width: 60px;
+	
+}
