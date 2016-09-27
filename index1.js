@@ -1,16 +1,23 @@
 (function() {
     var myvideo = document.getElementById('myvideo');
     var play = document.getElementById('img_go');
+    var background =document.getElementById("background");
     play.onclick = function() {
             if (myvideo.paused) {
                 myvideo.play();
                 play.src = "img/stop.png";
+                background.style.visibility="hidden";
             } else {
                 myvideo.pause();
                 play.src = "img/go.png";
+                background.style.visibility="visible";
             }
         }
         //stop/go的暂停 开始onclicks时间;
+       background.onclick = function(){
+        background.style.visibility="hidden";
+       } 
+       //图片点击变没；
     myvideo.ontimeupdate = function() {
             var time = document.getElementById('video_time');
             var cur_min = parseInt(myvideo.currentTime / 60);
