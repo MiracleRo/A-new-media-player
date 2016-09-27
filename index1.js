@@ -1,11 +1,13 @@
 (function() {
     var myvideo = document.getElementById('myvideo');
-    var btn_play = document.getElementById('btn_go');
-    btn_play.onclick = function() {
+    var play = document.getElementById('img_go');
+    play.onclick = function() {
         if (myvideo.paused) {
             myvideo.play();
+            play.src = "img/stop.png";
         } else {
             myvideo.pause();
+            play.src = "img/go.png";
         }
     }
     //stop/go的暂停 开始onclicks时间;
@@ -27,11 +29,11 @@
         }
     }
     //时间进度条 以及计时器
-    var back = document.getElementById('btn_back');
+    var back = document.getElementById('img_back');
     back.onclick = function(){
     	myvideo.currentTime-=5;
     }
-    var ahead  =document.getElementById('btn_ahead');
+    var ahead  =document.getElementById('img_ahead');
     ahead.onclick = function(){
     	myvideo.currentTime+=5;
     }
