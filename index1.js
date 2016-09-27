@@ -46,11 +46,29 @@
         myvideo.volume-=0.1;
         console.log(myvideo.volume);
     }
+  
+    var slc = document.getElementById('btn_slc');
+    slc.onclick = function(){
+        if (myvideo.muted) {
+            myvideo.muted=false;
+           
+        }else myvideo.muted=true;
+    }
+    //增加静音按钮及功能；
+    var sounder = document.getElementById('sound1');
     myvideo.onvolumechange = function(){
-          var sounder = document.getElementById('sound1');
-     sounder.style.width = (100*myvideo.volume)/1+"%"
+         if (myvideo.muted) {
+        sounder.style.width = "0";
+         }else{
+            sounder.style.width = (100*myvideo.volume)/1+"%"
+         }
     }
     //调节音量按钮 以及音量条；
+
+
+
+
+
    /* var full = document.getElementById('btn_full');
     full.onclick = function(){
         var a = document.getElementById('player');
