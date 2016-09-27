@@ -18,11 +18,23 @@
 .bottom_button{
 	height: 50px;
 }
-.liner{
-	height: 20px;
+#liner{
+	height: 5px;
+	background-color: red;
+}
+#liner1{
+	height: 5px;
+	width: 6px;
+	background-color: black;
+	position: relative;
+	top: -5px;
 }
 #video_time{
 	height: 20px;
 	width: 60px;
 	
+}
+.bottom_button{
+	position: relative;
+	top: 10px;
 }
