@@ -27,14 +27,30 @@
     }
     var back = document.getElementById('btn_back');
     back.onclick = function(){
-    	myvideo.currentTime  = myvideo.currentTime-5;
+    	myvideo.currentTime-=5;
     }
     var ahead  =document.getElementById('btn_ahead');
     ahead.onclick = function(){
-    	myvideo.currentTime = myvideo.currentTime+5;
+    	myvideo.currentTime+=5;
     }
-   /* myvideo.ontimeupdate = function(){
-     var line = document.getElementById('liner1');
-     line.style.width = (100*myvideo.currentTime)/myvideo.duration+"%";
+    var up = document.getElementById('btn_up');
+    var down = document.getElementById('btn_down');
+    up.onclick = function(){
+        myvideo.volume+=0.1;
+        console.log(myvideo.volume);
+    }
+    down.onclick = function(){
+        myvideo.volume-=0.1;
+        console.log(myvideo.volume);
+    }
+    myvideo.onvolumechange = function(){
+          var sounder = document.getElementById('sound1');
+     sounder.style.width = (100*myvideo.volume)/1+"%"
+    }
+   /* var full = document.getElementById('btn_full');
+    full.onclick = function(){
+        var a = document.getElementById('player');
+        a.style.width = "auto";
+        a.style.height = "650px";
     }*/
 }(window))
