@@ -28,7 +28,9 @@
             var cur_time = document.getElementById('current_time');
             cur_div.innerHTML = zero(cur_min) + ":" + zero(cur_sec);
             dur_div.innerHTML = zero(dur_min) + ":" + zero(dur_sec);
-            cur_time.style.width =(80*myvideo.currentTime/ myvideo.duration) + "%";
+            var cle_img =document.getElementById('time_cle')
+            cle_img.style.left = (80*myvideo.currentTime/ myvideo.duration+8) + "%";
+            cur_time.style.width =(80*myvideo.currentTime/ myvideo.duration)+ "%";
             function zero(a) {
                 if (a < 10) {
                     return "0" + a;
