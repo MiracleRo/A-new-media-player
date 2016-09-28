@@ -19,15 +19,16 @@
        } 
        //图片点击变没；
     myvideo.ontimeupdate = function() {
-            var time = document.getElementById('video_time');
+            var cur_div = document.getElementById('current_div');
+            var dur_div = document.getElementById('dur_div');
             var cur_min = parseInt(myvideo.currentTime / 60);
             var cur_sec = Math.floor(myvideo.currentTime % 60);
             var dur_min = parseInt(myvideo.duration / 60);
             var dur_sec = Math.floor(myvideo.duration % 60);
-            time.innerHTML = zero(cur_min) + ":" + zero(cur_sec) + "/" + zero(dur_min) + ":" + zero(dur_sec);
-            var line = document.getElementById('liner1');
-            line.style.width = (100 * myvideo.currentTime) / myvideo.duration + "%"
-
+            var cur_time = document.getElementById('current_time');
+            cur_div.innerHTML = zero(cur_min) + ":" + zero(cur_sec);
+            dur_div.innerHTML = zero(dur_min) + ":" + zero(dur_sec);
+            cur_time.style.width =(80*myvideo.currentTime/ myvideo.duration) + "%";
             function zero(a) {
                 if (a < 10) {
                     return "0" + a;

@@ -2,6 +2,7 @@
 	background-color: black;
     width: 600px;
     height: 440px;
+    border-radius: 35px;
 }
 .video{
 	width: 600px;
@@ -18,16 +19,24 @@
 .bottom_button{
 	height: 50px;
 }
-#liner{
-	height: 5px;
-	background-color: #111111;
+#total_time{
+	width: 80%;
+	height: 15px;
+	background-color: black;
+	border: 1px solid #d6cece;
+	border-radius: 10px;
+	position: relative;
+    top: -20px;
+    left: 60px;
 }
-#liner1{
-	height: 5px;
+#current_time{
+	height: 15px;
 	width: 0px;
 	background-color: red;
 	position: relative;
-	top: -5px;
+	top: -36px;
+    left: 61px;
+    border-radius: 10px;
 }
 #video_time{
 	height: 20px;
@@ -60,4 +69,31 @@ img{
     top: -300px;
     left: 120px;
     visibility: hidden;
+}
+#time_cle{
+	position: absolute;	
+	color: white;
+	left: 66px;
+    top: 352px;
+}
+.bottom{
+	position: relative;	
+	top: 10px;
+	left: 0px;
+}
+.time_div{
+	color: #f1f1f1;
+	width: 50px;
+	font-size: 18px;
+	height: 18px;
+}
+#current_div {
+    position: relative;
+    top: -53px;
+    left: 7px;
+}
+#dur_div{
+	position: relative;
+    top: -71px;
+    left: 548px;
 }
