@@ -5,11 +5,11 @@
     play.onclick = function() {
             if (myvideo.paused) {
                 myvideo.play();
-                play.src = "img/stop.png";
+                play.src = "img/stop_up.png";
                 background.style.visibility="hidden";
             } else {
                 myvideo.pause();
-                play.src = "img/go.png";
+                play.src = "img/go_up.png";
                 background.style.visibility="visible";
             }
         }
@@ -106,8 +106,34 @@
         }
     }
     //前一个 后一个 按钮；
-
-
+    img_go.onmousedown =function() {
+        if (img_go.src=="img/go_up.png") {
+            img_go.src = "img/go_down.png";
+        }
+        else {
+            img_go.src = "img/stop_down.png"
+        }
+    }
+     img_go.onmouseup =function() {
+        if (img_go.src=="img/go_down.png") {
+            img_go.src = "img/go_up.png";
+        }
+        else {
+            img_go.src = "img/stop_up.png"
+        }
+    }
+    back.onmousedown=function(){
+        back.src = "img/back_down.png";
+    }
+     back.onmouseup=function(){
+        back.src = "img/back_up.png";
+    }
+    ahead.onmousedown=function(){
+       ahead.src = "img/ahead_down.png";
+    }
+     ahead.onmouseup=function(){
+        ahead.src = "img/ahead_up.png";
+    }
     /* var full = document.getElementById('btn_full');
      full.onclick = function(){
          var a = document.getElementById('player');
