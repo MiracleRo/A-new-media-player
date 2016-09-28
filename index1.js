@@ -49,35 +49,48 @@
             myvideo.currentTime += 5;
         }
         //快进 快退按钮
-    var up = document.getElementById('btn_up');
-    var down = document.getElementById('btn_down');
+    var up = document.getElementById('img_big');
+    var down = document.getElementById('img_small');
     up.onclick = function() {
         myvideo.volume += 0.1;
-        console.log(myvideo.volume);
     }
     down.onclick = function() {
         myvideo.volume -= 0.1;
-        console.log(myvideo.volume);
     }
 
-    var slc = document.getElementById('btn_slc');
+    var slc = document.getElementById('img_muc');
     slc.onclick = function() {
             if (myvideo.muted) {
                 myvideo.muted = false;
+                slc.src = 'img/music.png';
+                return false;
 
             } else myvideo.muted = true;
+                slc.src = 'img/no_music.png';
         }
+    up.onmousedown = function() {
+        up.src = 'img/big_down.png';
+    }
+    up.onmouseup = function() {
+        up.src = 'img/big_up.png';
+    }
+    down.onmousedown = function() {
+        down.src = 'img/small_down.png';
+    }
+    down.onmouseup = function() {
+        down.src = 'img/small_up.png';
+    }
         //增加静音按钮及功能；
     var sounder = document.getElementById('sound1');
     myvideo.onvolumechange = function() {
             if (myvideo.muted) {
                 sounder.style.width = "0";
             } else {
-                sounder.style.width = (100 * myvideo.volume) / 1 + "%"
+                sounder.style.width = myvideo.volume*70 + "px"
             }
         }
         //调节音量按钮 以及音量条；
-    var next = document.getElementById('btn_next');
+    var next = document.getElementById('img_next');
     next.onclick = function() {
         if (myvideo.src == "https://media.w3.org/2010/05/sintel/trailer.mp4") {
             myvideo.src = "http://media.w3.org/2010/05/bunny/trailer.mp4";
@@ -92,7 +105,7 @@
             }
         }
     }
-    var front = document.getElementById('btn_front');
+    var front = document.getElementById('img_front');
     front.onclick = function(){
         if (myvideo.src=="https://media.w3.org/2010/05/sintel/trailer.mp4") {
             myvideo.src = "http://media.w3.org/2010/05/bunny/movie.mp4";
@@ -104,6 +117,18 @@
              myvideo.src = "https://media.w3.org/2010/05/sintel/trailer.mp4";
                 myvideo.play();
         }
+    }
+    front.onmousedown= function() {
+        front.src="img/front_down.png";
+    }
+    front.onmouseup= function() {
+        front.src="img/front_up.png";
+    }
+    next.onmousedown= function() {
+        next.src="img/next_down.png";
+    }
+    next.onmouseup= function() {
+        next.src="img/next_up.png";
     }
     //前一个 后一个 按钮；
     img_go.onmousedown =function() {

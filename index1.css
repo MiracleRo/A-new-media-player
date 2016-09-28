@@ -1,7 +1,7 @@
 #player{
 	background-color: #eadede;
     width: 600px;
-    height: 440px;
+    height: 480px;
     border-radius: 35px;
 }
 .video{
@@ -48,14 +48,20 @@
 	top: 10px;
 }
 #sound{
-	height: 5px;
+	width : 70px;
+	height:5px;
 	background-color: black;
+	position: relative;
+    left: 65px;
+    top: -20px;
 }
 #sound1{
 	height: 5px;
+	width: 0;
 	background-color: red;
 	position: relative;
-	top: -5px;
+	top: -25px;
+    left: 65px;
 }
 img{
 	width: 30px;
@@ -77,12 +83,12 @@ img{
     top: -59px;
 }
 .bottom{
-	position: relative;	
-	top: 10px;
-	left: 0px;
+	position: relative;
+    top: -55px;
+    left: 50px;
 }
 .time_div{
-	color: #f1f1f1;
+	color: black;
 	width: 50px;
 	font-size: 18px;
 	height: 18px;
@@ -99,5 +105,25 @@ img{
 }
 .inner{
 	position: relative;
-	top: -10px;
+	top: 30px;
+}
+#img_go{
+	position: relative;
+    top: 5px;
+}
+.sound_div{
+	position: relative;
+    top: -89px;
+    left: 407px;
+}
+#img_big{
+	width: 20px;
+	position: relative;
+	top: -5px;
+}
+#img_small{
+	width: 20px;
+	position: relative;
+    top: -38px;
+    left: 140px;
 }
