@@ -1,5 +1,5 @@
 #player{
-	background-color: #eadede;
+	background-image:url("img/back.png");
     width: 600px;
     height: 480px;
     border-radius: 35px;
@@ -57,7 +57,7 @@
 }
 #sound1{
 	height: 5px;
-	width: 0;
+	width: 70px;
 	background-color: red;
 	position: relative;
 	top: -25px;

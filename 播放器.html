@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.myAll{
+				position: relative;
+				border: 1px solid #ccc;
+				overflow: hidden;
+			}
+			#myImg{
+				position: absolute;
+			    top: 187px;
+			    left: 294px;
+			    display: none;
+			}
+			#tm{
+				width: 95px;
+			    height: 18px;
+			    border: 1px solid;
+			    font-family: 微软雅黑;
+			    font-size: 4px;
+			}
+			#jinDu{
+				width: 400px;
+				height: 7px;
+				position: absolute;
+				background: #9f9f9f;
+			}
+			#mjin{
+				width: 0;
+				height: 7px;
+				background: #4285f4;
+			}
+			#myPlay{
+			    background: url(kongZhi.jpg);
+			    width: 27px;
+			    height: 27px;
+			    background-repeat: no-repeat;
+			    background-position: -120px -160px;
+			}
+			.voicea{
+				background: url(voice.jpg);
+			    width: 27px;
+			    height: 27px;
+			    background-repeat: no-repeat;
+			    background-size: 56px;
+			    background-position: -13px -7px;
+			}
+			#voice{
+				width: 70px;
+				height:4px;
+				position: absolute;
+				background: #9f9f9f;
+			}
+			#myVoice{
+				width: 0;
+				height: 4px;
+				background: #4285f4;
+			}
+		</style>
+	</head>
+	<body>
+		<video controls="controls"  width="700px" height="500px" id="vid" >
+		<source src="tong.mkv">
+		不支持video 
+		</video>
+		<div class="myAll">
+			<button id="btn1">播放/暂停</button>
+			<button id="btn2">静音</button>
+			<button id="btn3">快进</button>
+			<button id="btn4">控制条</button>
+			<img src="gg.png" id="myImg">
+			<div id="tm"></div>
+			<div id="jinDu">
+				<div id="mjin"></div>
+			</div>
+			<div id="myPlay"></div>	
+			<div class="voicea"></div>
+			<div id="voice">
+				<div id="myVoice"></div>
+			</div>
+		</div>	
+		<script type="text/javascript" defer>
+			//开启严格模式
+			"use strict";
+			var myVideo = document.getElementById("vid");
+			var btn1 = document.getElementById("btn1");
+			var btn2 = document.getElementById("btn2");
+			var btn3 = document.getElementById("btn3");
+			var btn4 = document.getElementById("btn4");
+			var btn5 = document.getElementById("btn5");
+			var myImg = document.getElementById("myImg");
+			var	myPlay = document.getElementById("myPlay");
+			var tm = document.getElementById("tm");
+			var mjin = document.getElementById("mjin");
+			var jinDu = document.getElementById("jinDu");
+			//声音
+			var myVoice = document.getElementById("myVoice");
+			var voicea = document.getElementById("voice");
+			var video_voice = myVideo.volume;
+			var allTime;
+			var myTime;
+			myPlay.onclick = function(){
+				if (myVideo.paused){
+					myVideo.play();		
+				}else {
+					myVideo.pause();	
+				}
+			}
+			btn2.onclick = function(){
+				if(myVideo.muted){
+					myVideo.muted = false;
+				}else {
+					myVideo.muted = true;
+				}	
+			}
+			btn3.onclick = function(){
+				myVideo.currentTime = myVideo.currentTime + 8;
+			}
+			myVideo.onplay = function () {
+				myImg.style.display = "none";
+				myPlay.style.backgroundPosition = "-75px -160px";
+			}
+			myVideo.onpause = function(){
+				myImg.style.display = "block";
+				myPlay.style.backgroundPosition = "-120px -160px";
+			}
+			myImg.onclick = function(){
+				myImg.style.display = "none";
+			}
+			/*myVideo.onseeking = function () {
+				console.log('1');
+			}
+			myVideo.ontimeupdate = function () {
+				console.log(a+=1);
+			}
+			myVideo.addEventListener('loadeddata',function () {
+				console.log('111')
+			} )*/
+			btn4.onclick = function(){
+				if(myVideo.controls){
+					myVideo.controls = false;
+				}else {
+					myVideo.controls = true;
+				}
+			}
+
+			//显示时时时间
+			//给myVideo即视频添加时间改变触发事件；
+			window.setInterval(function(){
+				 	myTime = parseInt(myVideo.currentTime);
+				var miao = parseInt(myVideo.currentTime)%60;
+				var fen  = parseInt(myTime/60)%60;
+					allTime = myVideo.duration;
+				var allmiao = parseInt(myVideo.duration)%60;
+				var allfen  = parseInt(myVideo.duration/60)%60;
+				var allshi = parseInt(myVideo.duration/3600);
+				if(allmiao<10){
+					allmiao = "0"+allmiao;
+				}
+				if(allfen<10){
+					allfen = "0"+allfen;
+				}
+				if(miao<10){
+					miao = "0"+miao;
+				}
+				if(fen<10){
+					fen = "0"+fen;
+				}
+			 	var shi = parseInt(myTime/3600);
+			 	tm.innerHTML = shi+":"+fen+":"+miao+"/"+allshi+":"+allfen+":"+allmiao;
+				//进度条
+				var kuan = (myTime/allTime)*400;
+				mjin.style.width=kuan+"px";
+			},20)
+			//移动进度条
+
+			jinDu.onclick = function(event){
+				myVideo.currentTime = parseInt(event.offsetX)/400*myVideo.duration;
+				
+			}
+			jinDu.onmousedown = function(){
+				jinDu.onmousemove = function(){ myVideo.currentTime = parseInt(event.offsetX)/400*myVideo.duration;}
+				document.onmouseup = function(){
+				jinDu.onmousemove = null;
+				}
+			}
+			//控制声音
+			
+			voice.onclick = function(event){
+				myVideo.volume = event.offsetX/70;
+				myVoice.style.width =myVideo.volume*70+"px";
+			}
+			voice.onmousedown = function(event){
+				voice.onmousemove = function(){ 
+					myVideo.volume = event.offsetX/70;
+					myVoice.style.width =myVideo.volume*70+"px";
+				}
+				document.onmouseup = function(){
+				voice.onmousemove = null;
+				}
+			}
+		</script>
+	</body>
+</html>

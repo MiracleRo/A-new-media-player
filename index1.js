@@ -132,13 +132,11 @@
     }
     //前一个 后一个 按钮；
     img_go.onmousedown =function() {
-        if (img_go.src=="D:/newpalyer/img/go_up.png") {
-            console.log(img_go.src);
+        if (img_go.src=="img/go_up.png") {
             img_go.src = "img/go_down.png";
         }
         else {
-            console.log(img_go.src);
-            img_go.src = "img/stop_down.png"
+            img_go.src = "img/stop_down.png";
         }
     }
      img_go.onmouseup =function() {
@@ -161,10 +159,5 @@
      ahead.onmouseup=function(){
         ahead.src = "img/ahead_up.png";
     }
-    /* var full = document.getElementById('btn_full');
-     full.onclick = function(){
-         var a = document.getElementById('player');
-         a.style.width = "auto";
-         a.style.height = "650px";
-     }*/
+    //
 }(window))
