@@ -119,11 +119,11 @@ img{
 #img_big{
 	width: 20px;
 	position: relative;
-	top: -5px;
+	top: -38px;
+    left: 146px;
 }
 #img_small{
 	width: 20px;
 	position: relative;
-    top: -38px;
-    left: 140px;
+   	top: -5px;
 }
