@@ -18,9 +18,10 @@
         background.style.visibility="hidden";
        } 
        //图片点击变没；
-    myvideo.ontimeupdate = function() {
+            var cle_img =document.getElementById('time_cle')
             var cur_div = document.getElementById('current_div');
             var dur_div = document.getElementById('dur_div');
+           myvideo.ontimeupdate = function() {
             var cur_min = parseInt(myvideo.currentTime / 60);
             var cur_sec = Math.floor(myvideo.currentTime % 60);
             var dur_min = parseInt(myvideo.duration / 60);
@@ -28,7 +29,7 @@
             var cur_time = document.getElementById('current_time');
             cur_div.innerHTML = zero(cur_min) + ":" + zero(cur_sec);
             dur_div.innerHTML = zero(dur_min) + ":" + zero(dur_sec);
-            var cle_img =document.getElementById('time_cle')
+            
             cle_img.style.left = (80*myvideo.currentTime/ myvideo.duration+8) + "%";
             cur_time.style.width =(80*myvideo.currentTime/ myvideo.duration)+ "%";
             function zero(a) {
@@ -159,5 +160,29 @@
      ahead.onmouseup=function(){
         ahead.src = "img/ahead_up.png";
     }
-    //
+    // 
+    var cur = document.getElementById('current_time');
+    var tal = document.getElementById('total_time');
+    cle_img.ondragstart = function(event) {
+        x_sta = event.clientX;
+        x_cur = cur.clientWidth;
+        x_dur = tal.clientWidth;
+    }
+   
+    cle_img.ondragend = function(event) {
+        x_end = event.clientX;
+        x_len = (x_cur - x_sta + x_end) / x_dur;
+        if (x_len <= 0) {
+            x_len = 0;
+        } else if (x_len >= 1) {
+            x_len = 1;
+        } else {
+            x_len = x_len;
+        }
+        myvideo.currentTime = x_len * myvideo.duration;
+        jindu_cur();
+    }
+     function jindu_cur() {
+        jindu_current.style.width = (video1.currentTime / video1.duration) * 100 + '%';
+    }
 }(window))

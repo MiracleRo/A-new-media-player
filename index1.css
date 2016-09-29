@@ -1,7 +1,7 @@
 #player{
 	background-image:url("img/back.png");
     width: 600px;
-    height: 480px;
+    height: 460px;
     border-radius: 35px;
 }
 .video{
@@ -84,7 +84,7 @@ img{
 }
 .bottom{
 	position: relative;
-    top: -55px;
+    top: -65px;
     left: 50px;
 }
 .time_div{
@@ -113,14 +113,14 @@ img{
 }
 .sound_div{
 	position: relative;
-    top: -89px;
-    left: 407px;
+    top: -95px;
+    left: 375px;
 }
 #img_big{
 	width: 20px;
 	position: relative;
 	top: -38px;
-    left: 146px;
+    left: 143px;
 }
 #img_small{
 	width: 20px;
