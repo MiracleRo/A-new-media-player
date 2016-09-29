@@ -88,7 +88,8 @@ img{
     left: 50px;
 }
 .time_div{
-	color: black;
+	font-weight: bold;
+	color: white;
 	width: 50px;
 	font-size: 18px;
 	height: 18px;
@@ -96,7 +97,7 @@ img{
 #current_div {
     position: relative;
     top: -86px;
-    left: 5px;
+    left: 3px;
 }
 #dur_div{
 	position: relative;
